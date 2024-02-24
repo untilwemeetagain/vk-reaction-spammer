@@ -1,1 +1,1 @@
-access_token = 'vk1.a.E2o6gn7gniA5aFHcZLDWw65GpOJJTXxqjOsutDYsgE0Hk91LfK2DN_GxslSA68GaEiARNEYWtimgaHCcqLc8r6_GWCEiyhtv4oQ4rBcoK6ab_NQEysDtGvV2mZgUviEzT9fblsQD4yZsgYuSTrJeQu_CM34Pe-X-nmuGtgaysXfaZMg5-0d_JtlQxBuuMIIulVCOs3wITT4eSvvmVdV0pA'
+access_token = ''
