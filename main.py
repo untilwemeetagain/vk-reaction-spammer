@@ -1,8 +1,6 @@
 from functions import *
 import time
 
-# hello world
-
 def main():
     klan_snus_id = 226  #5539 - reaction sent to: 81491 <Response [200]>
     memnie_id = 138
