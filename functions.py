@@ -1,4 +1,20 @@
 import vk_api
+import requests
+import random
+import tokens
+
+vk_session = vk_api.VkApi(token=tokens.access_token)
+me = vk_session.get_api()
+
+
+def sendReaction(params : dict):
+        sent = me.messages.sendReaction(
+                peer_id=params['peer_id'],
+                cmid=params['cmid'],
+                reaction_id=params['reaction_id']
+                )
+        
+        return sent
 
 
 def deleteReaction(params : dict):
