@@ -3,4 +3,4 @@
 Ставит реакции на все соообщения, начиная с последнего, в указанном чате.
 
 hello from dev branch
-edites just now
+edited just now
