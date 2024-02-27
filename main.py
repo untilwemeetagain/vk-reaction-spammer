@@ -1,29 +1,42 @@
 from functions import *
-import time
 
 def main():
-    klan_snus_id = 226  #5539 - reaction sent to: 81491 <Response [200]>
-    memnie_id = 138
+    you = getChatName()
+    print(f"Logged in as: {you[0]} (id = {you[1]})")
 
-    params = getChatParams(klan_snus_id, 0)
-    print('\nlast message id = ', params['cmid'], '\n')
+    chat_list = getChatList()
+    print("\nChoose one conversation to spam with reactions:")
+    for i in range(len(chat_list)):
+        print(f"[{i}] - {chat_list[i]['title'][0]} ({chat_list[i]['type']})")
+
+    target_chat_pos = int(input("\nEnter chat position: "))
+    target_chat = chat_list[target_chat_pos]
+    target_chat_id = target_chat['id']
+    printChatInfo(target_chat)
+
+    action = int(input("Do you want (1) - to send or (0) - to delete reactions: "))
+    if (action == 1):
+        msg_count = int(input("Enter how many msgs to react for: "))
+        start = input(("\nPress ENTER to begin, '0' to exit"))
+
+        if (start == '0'): return
+        
+        print("\nReacting begins... (20 sec wait after every 20 requests)")
+        Reactions(target_chat_id, msg_count, False)
+
+    elif (action == 0):
+        msg_count = int(input("Enter how many reactions to remove: "))
+        start = input(("\nPress ENTER to begin, (0) - to exit"))
+
+        if (start == '0'): return
+        
+        print("\nDeleting begins... (20 sec wait after every 20 requests)")
+        Reactions(target_chat_id, msg_count, True)
+
+    else:
+        print("Deleting Windows...")
+        while True: print(random.randint(10000000), end=' ')
     
-    counter = 0
-    while True:
-        sent_counter = 0
-        for _ in range(20):
-            sent = deleteReaction(params)
-
-            if sent:
-                sent_counter += 1
-            
-            counter += 1
-            params['cmid'] -= 1  
-            params['reaction_id'] = random.randint(1, 16) 
-
-        print(f'({counter}) {sent_counter}/{20} reactions sent | last cmid = {params['cmid']}')
-        time.sleep(20)  
-          
 
 if __name__ == "__main__":
     main()
